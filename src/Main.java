@@ -1,4 +1,5 @@
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import java.util.Random;
@@ -231,21 +232,180 @@ public class Main {
         // Elements can be added and removed after compilation phase store reference data types
 
 
+        // ArrayList = a resizable array.
+        // Elements can be added and removed after compilation phase
+        // store reference data types
+
+
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Eduardo");
+        list.add("Felipe");
+        list.add("Hy");
+
+        list.set(0, "Brito"); // now Brito is the first item and Eduardo doesn't exist
+        // anymore
+        list.remove(2); // Hy was removed
+        list.clear(); //now it is empty
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+
+        // 2D ArrayList = a dynamic list of lists
+        // You can change the size of these lists during runtime
+
+        ArrayList<ArrayList<String>> groceryList = new ArrayList<>();
+
+        ArrayList<String> bakeryList = new ArrayList<>();
+        bakeryList.add("pasta");
+        bakeryList.add("garlic bread");
+        bakeryList.add("donuts");
+
+        System.out.println(bakeryList);
+
+        ArrayList<String> produceList = new ArrayList<>();
+        produceList.add("tomatoes");
+        produceList.add("zucchini");
+        produceList.add("pappers");
+
+        System.out.println(produceList.get(0));
+
+        ArrayList<String> drinkList = new ArrayList<>();
+        drinkList.add("milk");
+        drinkList.add("orange juice");
+
+        System.out.println(drinkList.get(0));
+
+        groceryList.add(bakeryList);
+        groceryList.add(produceList);
+        groceryList.add(drinkList);
+
+        System.out.println(groceryList.get(0).get(0));
+
+        // for-each traversing technique to iterate through the elements is an array/collection
+        // less steps, more readable
+        // less flexible
+
+        String[] animals = {"cat", "dog", "rat", "bird"};
+
+        for (String animal :  animals) {
+            System.out.println(animal);
+        }
+
+        ArrayList<String> animalsWrap = new ArrayList<>();
+        animalsWrap.add("cat");
+        animalsWrap.add("dog");
+        animalsWrap.add("rat");
+        animalsWrap.add("bird");
+
+        for (String animal : animalsWrap) {
+            System.out.println(animal);
+        }
+
+        String parameter = "testing a parameter";
+        int age = 18;
+        hello(parameter, age);
+
+        System.out.println(sum(2, 3));
+
+        int x = sum(2,3, 4, 6);
+        System.out.println(x);
+
+        // printf() = an optional method to control, format, and display text to the console window two arguments =
+        // format string + (object / variable / value)
+        // [flags] [precision] [width] [conversion-character]
+
+        System.out.printf("this is a format string: %d\n", 123);
+
+        boolean myBoolean = true;
+//        System.out.printf("Im learning about printf and this is an example: %b\n", myBoolean);
+//        %d → int
+//        %s → string
+//        %.2f → float or double with two numbers after . -> 12.98
+//        %n ou \n → nova linha
+
+        // [Flags]
+        // adds an effect to output based on the flag added to format specifier
+        // - : left-justify ->
+        // + : output a plus ( + ) or minus ( - ) sign for a numeric value
+        // 0 : numeric values are zero-padded
+        // , : comma grouping separator if numbers > 1000
+
+        // EXAMPLES:
+        // System.out.printf("Hello %-10s", myString) -> output = Bro''''''' -> each ' is a \n
+        // System.out.printf("Hello %10s", myString) -> output = '''''''Bro -> each ' is a \n
+        // System.out.printf("Hello %.2f", myDouble) -> output = 1000.92
+        // System.out.printf("Hello %+f", myDouble) -> output = +1000.9233339393 (if the number is negative -> -1000...)
+        // System.out.printf("Number formatted: %05d\n", number); - 000002000.0000
+        // System.out.printf("Número format: %,f", numero); 1,000.0000
+
+
+        //final keyword
+
+        final double irreversible = 3.14; // I can no longer change that number, this turned in a permanent value;
+
+
+        // OOP (Object)
+
+        // object = an instance of a class that may contain attributes and methods
+        // attributes => characteristics that this object has
+        // methods => the different actions that this object can perform
+
+        // EXAMPLE WITH A COFFEE -> CHARACTERISTICS = 20.0 TEMP, EMPTY, NO SUGAR. METHODS = DRINK(), SPILL();
 
 
 
+        // example: phone, desk, computer, coffee cup
 
+        Car myCar = new Car();
+        Car myCar2 = new Car();
+        System.out.println(myCar.year + ' ' + myCar.model + ' ' + myCar.price);
+        System.out.println(myCar2.year + ' ' + myCar2.model + ' ' + myCar2.price);
+        myCar.drive();
 
+        // Constructor = special method that is called when an object is instantiated (created)
+
+        Human human = new Human("Rick", 18, 1.88, 74);
     }
+
+    //method = a block of code that is a executed whenever it is called
+    //upon - we can't make a static reference to the non-static
+
+    static void hello(String something, int age) {
+        System.out.println(something);
+    }
+
+    static int sum(int a, int b) {
+        System.out.println("This is overloaded method number one");
+        int z = a + b;
+        return z;
+    }
+
+    // overloaded methods = methods that share the same name but have different parameters
+    // method name + parameters = method signature
+
+    static int sum(int a, int b, int c) {
+        System.out.println("This is overloaded method number two");
+        int z = a + b + c;
+        return z;
+    }
+
+
+
+    static int sum(int a, int b, int c, int d) {
+        System.out.println("This is overloaded method number three");
+        int z = a + b + c + d;
+        return z;
+    }
+
+    // when we use it? -> we use it in "optional" occasions; share the same name but have different parameters;
+    // method name + parameters = method signature;
+
+
+
 }
 
 
-
-
-
-
-
-// 
 
 
 
